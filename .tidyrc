@@ -1,0 +1,10 @@
+char-encoding:       utf8
+wrap-attributes:     false
+break-before-br:     true
+indent:              true
+wrap:                110
+indent-spaces:       2
+#error-file:          tidy-errs.txt
+sort-attributes:     alpha
+logical-emphasis:    false
+drop-empty-elements: false

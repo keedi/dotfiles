@@ -1,0 +1,70 @@
+[user]
+	name = Keedi Kim
+	email = keedi.k@gmail.com
+[color]
+	ui = auto
+[color "branch"]
+	current = green bold
+[color "status"]
+	added = green bold
+	changed = red bold
+	untracked = cyan
+[branch]
+	autosetuprebase = always
+[alias]
+	log1 = log --graph --pretty=format:\"%C(yellow)%cd%Creset %Cred%h%Creset – %s %Cgreen(%an)%Creset\" --abbrev-commit --date=short
+	log2 = log --format="%C(yellow)%h%C(reset) %C(green)%cN%C(reset) %s %C(yellow)- %cr%C(reset)%n" -n15 --graph
+	bz-diff = diff --stat
+	bz-log = log --pretty=format:'* %cd %h  - %s (%an)' --date=short
+	st = status -s
+	ci = commit
+	sum-date = log --pretty=format:\"%cd %an\" --abbrev-commit --date=short
+
+[sendmail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = keedi.k@gmail.com
+	smtpserverport = 587
+[push]
+	default = current
+[core]
+	autocrlf = false
+
+#
+# http://stackoverflow.com/questions/2850369/why-does-git-fast-forward-merges-by-default
+#
+# This is the list of cmdline options that should be added to git-merge
+# when I merge commits into the master branch.
+#
+# The option --no-commit instructs git not to commit the merge
+# by default. This allows me to do some final adjustment to the commit log
+# message before it gets commited. I often use this to add extra info to
+# the merge message or rewrite my local branch names in the commit message
+# to branch names that are more understandable to the casual reader of the git log.
+#
+# Option --no-ff instructs git to always record a merge commit, even if
+# the branch being merged into can be fast-forwarded. This is often the
+# case when you create a short-lived topic branch which tracks master, do
+# some changes on the topic branch and then merge the changes into the
+# master which remained unchanged while you were doing your work on the
+# topic branch. In this case the master branch can be fast-forwarded (that
+# is the tip of the master branch can be updated to point to the tip of
+# the topic branch) and this is what git does by default. With --no-ff
+# option set, git creates a real merge commit which records the fact that
+# another branch was merged. I find this easier to understand and read in
+# the log.
+[branch "master"]
+;mergeoptions = --no-commit --no-ff
+;mergeoptions = --no-commit --no-ff
+[branch "develop"]
+;mergeoptions = --no-commit --no-ff
+;mergeoptions = --no-commit --no-ff
+
+# https://mijingo.com/blog/preventing-non-fast-forward-git-merges
+# git config --global --add merge.ff false
+[merge]
+	ff = false
+[pull]
+	ff = false
+[gitflow "feature.finish"]
+	no-ff = true
