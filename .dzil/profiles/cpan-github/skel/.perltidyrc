@@ -1,4 +1,4 @@
-# SILEX .perltidyrc file
+# KEEDI .perltidyrc file
 
 -se     # Errors to STDERR
 
